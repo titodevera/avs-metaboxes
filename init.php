@@ -30,6 +30,8 @@
   require 'classes/class.avs-metabox-field.php';
 
   add_action('admin_enqueue_scripts',function(){
+    wp_enqueue_style( 'wp-color-picker' );
+
     wp_register_script('avs-metaboxes-functions',get_stylesheet_directory_uri().'/avs-metaboxes/assets/functions.js',array('jquery', 'wp-color-picker'), '1.0', true);
     wp_enqueue_script('avs-metaboxes-functions');
 
