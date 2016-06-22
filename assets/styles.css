@@ -1,0 +1,110 @@
+/* ····························· Global ····························· */
+.avs-metabox-clearfix:after{
+  content: '';
+  display: table;
+  clear: both;
+}
+.avs-metabox-cont{
+  margin-left: -10px;
+  margin-right: -10px;
+  position: relative;
+}
+.avs-metabox-cont *{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+/* ····························· /Global ····························· */
+
+/* ····························· Columns ····························· */
+.avs-metabox-cont .avs-metabox-col12{ width: 100%; min-width: 100%; max-width: 100%;}
+.avs-metabox-cont .avs-metabox-col6{ width: 50%; min-width: 50%; max-width: 50%;}
+.avs-metabox-cont .avs-metabox-col4{ width: 33.333%; min-width: 33.333%; max-width: 33.333%; }
+.avs-metabox-cont .avs-metabox-col3{ width: 25%; min-width: 25%; max-width: 25%; }
+
+.avs-metabox-cont .avs-metabox-col12,
+.avs-metabox-cont .avs-metabox-col6,
+.avs-metabox-cont .avs-metabox-col4,
+.avs-metabox-cont .avs-metabox-col3{
+  padding: 10px;
+}
+.avs-metabox-cont .avs-metabox-col12,
+.avs-metabox-cont .avs-metabox-col6,
+.avs-metabox-cont .avs-metabox-col4,
+.avs-metabox-cont .avs-metabox-col3{
+  float: left;
+}
+@media all and (max-width: 782px){
+  .avs-metabox-cont .avs-metabox-col12,
+  .avs-metabox-cont .avs-metabox-col6,
+  .avs-metabox-cont .avs-metabox-col4,
+  .avs-metabox-cont .avs-metabox-col3{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    float: none;
+  }
+}
+/* ····························· /Columns ····························· */
+
+/* ····························· Form elements ····························· */
+.avs-metabox-cont label{
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.avs-metabox-cont input[type="text"], .avs-metabox-cont input[type="number"],.avs-metabox-cont textarea,.avs-metabox-cont select{
+  width: 100%;
+}
+.avs-metabox-cont input{
+}
+.avs-metabox-cont textarea{
+  min-height: 60px;
+  max-height: 120px;
+}
+.avs-metabox-cont .wp-picker-container{
+  position: absolute;
+  z-index: 99997;
+}
+.avs-metabox-cont .wp-picker-container .iris-palette-container{
+  position: absolute;
+  z-index: 99998;
+}
+.avs-metabox-cont .avs-metabox-image-field{
+  display: none;
+}
+.avs-metabox-cont .avs-metabox-image-preview{
+  display: inline-block;
+  margin-top: 10px;
+  position: relative;
+  padding: 6px;
+  border: 1px solid #999;
+}
+.avs-metabox-cont .avs-metabox-image-preview > img{
+  max-width: 100%;
+  height: auto;
+}
+.avs-metabox-cont .avs-metabox-image-preview:hover > img{
+  opacity: 0.7;
+}
+.avs-metabox-cont .avs-metabox-image-preview:hover .avs-metabox-image-remove{
+  display: block;
+}
+.avs-metabox-cont .avs-metabox-image-remove{
+  width: auto;
+  height: auto;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  color: #cf3838;
+  font-size: 28px;
+}
+.avs-metabox-cont .avs-metabox-image-remove:hover{
+  cursor: pointer;
+}
+/* ····························· /Form elements ····························· */
