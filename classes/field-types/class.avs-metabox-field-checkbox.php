@@ -6,8 +6,8 @@
 
   final class Avs_Metabox_Field_Checkbox extends Avs_Metabox_Field{
 
-    function __construct($field_id, $column_width, $clear_after, $field_title, $options = array()){
-      parent::__construct($field_id, $column_width, $clear_after, $field_title, $options);
+    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description, $options = array()){
+      parent::__construct($field_id, $column_width, $clear_after, $field_title, $field_description, $options);
     }
 
     public function render_input($field_value){

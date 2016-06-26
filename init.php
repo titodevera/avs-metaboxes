@@ -1,11 +1,11 @@
 <?php
   /*
   AVS Metaboxes
-  Version: 0.2
+  Version: 0.3
   Author: Alberto de Vera Sevilla
   License: GPL3
 
-      AVS Metaboxes version 0.2, Copyright (C) 2016 Alberto de Vera Sevilla
+      AVS Metaboxes version 0.3, Copyright (C) 2016 Alberto de Vera Sevilla
 
       AVS Metaboxes is free software: you can redistribute it and/or modify
       it under the terms of the GNU General Public License as published by
@@ -26,7 +26,6 @@
 
   defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-
   spl_autoload_register(function ($class_name) {
     $class_name = str_replace('Avs_Metabox_Wrapper\\','',$class_name);
     $class_name = str_replace('_','-',$class_name);
@@ -42,14 +41,22 @@
 
   });
 
+  $file = __FILE__;
+  $content_url = untrailingslashit( dirname( dirname( get_stylesheet_directory_uri() ) ) );
+  $content_dir = untrailingslashit( WP_CONTENT_DIR );
+  $file = wp_normalize_path( $file );
+  $content_dir = wp_normalize_path( $content_dir );
+  $url = str_replace( $content_dir, $content_url, $file );
+  $url = str_replace( basename(__FILE__), '', $url );
+  define('AVS_METABOXES_URL', $url);
 
   add_action('admin_enqueue_scripts',function(){
     wp_enqueue_style( 'wp-color-picker' );
 
-    wp_register_script('avs-metaboxes-functions',get_stylesheet_directory_uri().'/avs-metaboxes/assets/functions.js',array('jquery', 'wp-color-picker'), '1.0', true);
+    wp_register_script('avs-metaboxes-functions',AVS_METABOXES_URL.'/assets/functions.js',array('jquery', 'wp-color-picker'), '1.0', true);
     wp_enqueue_script('avs-metaboxes-functions');
 
-    wp_register_style('avs-metaboxes-styles',get_stylesheet_directory_uri().'/avs-metaboxes/assets/styles.css',array(), '1.0', 'all');
+    wp_register_style('avs-metaboxes-styles',AVS_METABOXES_URL.'/assets/styles.css',array(), '1.0', 'all');
     wp_enqueue_style('avs-metaboxes-styles');
   });
 

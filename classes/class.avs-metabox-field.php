@@ -6,13 +6,14 @@
 
   abstract class Avs_Metabox_Field{
 
-    private $field_id, $column_width, $clear_after, $field_title, $options;
+    private $field_id, $column_width, $clear_after, $field_title, $field_description, $options;
 
-    function __construct($field_id, $column_width, $clear_after, $field_title, $options = array()){
+    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description = '', $options = array()){
       $this->field_id = $field_id;
       $this->column_width = $column_width;
       $this->clear_after = $clear_after;
       $this->field_title = $field_title;
+      $this->field_description = $field_description;
       $this->options = $options;
     }
 
@@ -29,6 +30,11 @@
       <div class="avs-metabox-<?php echo $this->column_width;?> avs-metabox-field avs-metabox-clearfix">
         <label for="<?php echo $this->field_id;?>"><?php echo $this->field_title;?></label>
         <?php echo $this->render_input($field_value);?>
+        <?php if($this->field_description != ''): ?>
+                <p class="avs-metabox-field-desc description">
+                  <?php echo $this->field_description;?>
+                </p>
+        <?php endif; ?>
         <?php wp_nonce_field( 'edit', $this->field_id.'_nonce' ); ?>
       </div>
       <?php
