@@ -1,11 +1,11 @@
 <?php
   /*
   AVS Metaboxes
-  Version: 0.1
+  Version: 0.2
   Author: Alberto de Vera Sevilla
   License: GPL3
 
-      AVS Metaboxes version 0.1, Copyright (C) 2016 Alberto de Vera Sevilla
+      AVS Metaboxes version 0.2, Copyright (C) 2016 Alberto de Vera Sevilla
 
       AVS Metaboxes is free software: you can redistribute it and/or modify
       it under the terms of the GNU General Public License as published by
@@ -26,8 +26,22 @@
 
   defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-  require 'classes/class.avs-metabox.php';
-  require 'classes/class.avs-metabox-field.php';
+
+  spl_autoload_register(function ($class_name) {
+    $class_name = str_replace('Avs_Metabox_Wrapper\\','',$class_name);
+    $class_name = str_replace('_','-',$class_name);
+    $class_name = strtolower($class_name);
+
+    if(is_file(dirname( __FILE__ ).'/classes/class.'.$class_name.'.php')) {
+      require_once dirname( __FILE__ ).'/classes/class.'.$class_name.'.php';
+    }else if(is_file(dirname( __FILE__ ).'/classes/field-types/class.'.$class_name.'.php')) {
+      require_once dirname( __FILE__ ).'/classes/field-types/class.'.$class_name.'.php';
+    }else if(is_file(dirname( __FILE__ ).'/classes/field-types/custom/class.'.$class_name.'.php')) {
+      require_once dirname( __FILE__ ).'/classes/field-types/custom/class.'.$class_name.'.php';
+    }
+
+  });
+
 
   add_action('admin_enqueue_scripts',function(){
     wp_enqueue_style( 'wp-color-picker' );

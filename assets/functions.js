@@ -31,8 +31,8 @@ jQuery(document).ready(function($){
   });
 
   $( '.avs-metabox-cont .avs-metabox-image-remove').on('click',function(){
-    var $imageField = $(this).closest('input.avs-metabox-image-field');
-    var $imagePreview = $(this).closest('.avs-metabox-image-preview');
+    var $imageField = $(this).parents('.avs-metabox-field').find('input.avs-metabox-image-field');
+    var $imagePreview = $(this).parents('.avs-metabox-field').find('.avs-metabox-image-preview');
     $imageField.val('');
     $imagePreview.html('No image selected');
   });

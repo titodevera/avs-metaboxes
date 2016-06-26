@@ -27,7 +27,7 @@
     public function meta_box_callback(){
       echo '<div class="avs-metabox-cont avs-metabox-clearfix">';
       foreach ($this->fields as $field) {
-        echo $field->get_field();
+        echo $field->render_field();
         echo ($field->get_clear_after()) ? '<div class="avs-metabox-clearfix"></div>' : '';
       }
       echo '</div>';
@@ -39,23 +39,22 @@
         $field_id = $field->get_field_id();
         $field_id_nonce = $field_id . '_nonce';
 
-        if ( ! isset( $_POST[$field_id] ) || ! isset( $_POST[$field_id_nonce] ) || ! wp_verify_nonce( $_POST[$field_id_nonce], 'edit' ) || defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        if(isset($_POST['post_type']) && 'page' == $_POST['post_type']){
+          if(!current_user_can( 'edit_page', $post_id )){
             return $post_id;
+          }
+        }else{
+          if(!current_user_can( 'edit_post', $post_id )){
+            return $post_id;
+          }
         }
 
-        if ( 'page' == $_POST['post_type'] ) {
-            if ( ! current_user_can( 'edit_page', $post_id ) ) {
-                return $post_id;
-            }
-        } else {
-            if ( ! current_user_can( 'edit_post', $post_id ) ) {
-                return $post_id;
-            }
+        if ( isset( $_POST[$field_id] ) && isset( $_POST[$field_id_nonce] ) && wp_verify_nonce( $_POST[$field_id_nonce], 'edit' ) && !defined( 'DOING_AUTOSAVE' ) ) {
+          $field_value = $field->sanitize_field($_POST[$field_id]);
+          update_post_meta( $post_id, $field_id, $field_value );
+        }else{
+          delete_post_meta( $post_id, $field_id );
         }
-
-        $field_value = $field->sanitize_field($field->get_field_type(),$_POST[$field_id]);
-
-        update_post_meta( $post_id, $field_id, $field_value );
 
       }
 
