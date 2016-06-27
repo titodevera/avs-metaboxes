@@ -12,10 +12,10 @@ Developer's toolkit for building metaboxes for WordPress.
         require_once( 'avs-metaboxes/init.php' );
 
         $avs_metabox->add_field(array(
-          'type'					=> 'editor',
-          'id' 						=> 'my_editor_field',
-          'label' 				=> 'My editor field:',
-          'desc' 					=> 'My editor field description',
-          'col_width' 		=> 'col12',
-          'clear_after' 	=> true
+          'type' => 'editor',
+          'id' => 'my_editor_field',
+          'label' => 'My editor field:',
+          'desc' => 'My editor field description',
+          'col_width' => 'col12',
+          'clear_after' => true
         ));
