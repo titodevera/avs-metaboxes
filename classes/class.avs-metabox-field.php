@@ -6,15 +6,14 @@
 
   abstract class Avs_Metabox_Field{
 
-    private $field_id, $column_width, $clear_after, $field_title, $field_description, $options;
+    private $field_id, $column_width, $clear_after, $field_title, $field_description;
 
-    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description = '', $options = array()){
+    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description = ''){
       $this->field_id = $field_id;
       $this->column_width = $column_width;
       $this->clear_after = $clear_after;
       $this->field_title = $field_title;
       $this->field_description = $field_description;
-      $this->options = $options;
     }
 
     abstract function render_input($field_value);
@@ -54,10 +53,6 @@
 
     public function get_clear_after(){
       return $this->clear_after;
-    }
-
-    public function get_options(){
-      return $this->options;
     }
 
   }

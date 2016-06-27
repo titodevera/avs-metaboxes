@@ -6,8 +6,8 @@
 
   final class Avs_Metabox_Field_Colorpicker extends Avs_Metabox_Field{
 
-    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description, $options = array()){
-      parent::__construct($field_id, $column_width, $clear_after, $field_title, $field_description, $options);
+    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description){
+      parent::__construct($field_id, $column_width, $clear_after, $field_title, $field_description);
     }
 
     public function render_input($field_value){

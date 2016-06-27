@@ -1,11 +1,11 @@
 <?php
   /*
   AVS Metaboxes
-  Version: 0.3
+  Version: 0.4
   Author: Alberto de Vera Sevilla
   License: GPL3
 
-      AVS Metaboxes version 0.3, Copyright (C) 2016 Alberto de Vera Sevilla
+      AVS Metaboxes version 0.4, Copyright (C) 2016 Alberto de Vera Sevilla
 
       AVS Metaboxes is free software: you can redistribute it and/or modify
       it under the terms of the GNU General Public License as published by
