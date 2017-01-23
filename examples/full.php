@@ -1,6 +1,6 @@
 <?php
 
-  $avs_metabox = new Avs_Metabox_Wrapper\Avs_Metabox('pages-metabox','Pages Metabox',array('page','post'));
+  $avs_metabox = new Avs_Metabox_Wrapper\Avs_Metabox( 'pages-metabox', 'Pages Metabox', array( 'page','post' ) );
 
   //Adds input text field
   $avs_metabox->add_field(array(
@@ -45,7 +45,19 @@
     'id' 						=> 'my_url_field',
     'label' 				=> 'My url field:',
     'desc' 					=> 'My url field description',
-    'col_width' 		=> 'col9',
+    'col_width' 		=> 'col4'
+  ));
+
+  //Adds input url field
+  $avs_metabox->add_field(array(
+    'type'					=> 'date',
+    'id' 						=> 'my_date_field',
+    'label' 				=> 'My date field:',
+    'desc' 					=> 'My date field description',
+    'col_width' 		=> 'col5',
+    'format' 		    => 'dd-mm-yy',
+    'mindate' 		  => 0,
+    'is_date_range' => false,
     'clear_after' 	=> true
   ));
 

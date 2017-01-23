@@ -119,6 +119,18 @@
             $field_settings['desc']
           );
           break;
+        case 'date':
+          $this->fields[] = new Avs_Metabox_Field_Date(
+            $field_settings['id'],
+            $field_settings['col_width'],
+            $field_settings['clear_after'],
+            $field_settings['label'],
+            $field_settings['desc'],
+            $field_settings['format'],
+            $field_settings['mindate'],
+            $field_settings['is_date_range']
+          );
+          break;
       }
 
     }
@@ -164,5 +176,3 @@
     }
 
   }
-
-?>
