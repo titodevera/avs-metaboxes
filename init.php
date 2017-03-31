@@ -1,7 +1,7 @@
 <?php
   /*
   AVS Metaboxes
-  Version: 0.5
+  Version: 0.5.1
   Author: Alberto de Vera Sevilla
   License: GPL3
 
