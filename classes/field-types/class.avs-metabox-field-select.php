@@ -7,16 +7,18 @@
   final class Avs_Metabox_Field_Select extends Avs_Metabox_Field{
 
     private $options;
+    private $multiple;
 
-    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description, $options = array()){
+    function __construct($field_id, $column_width, $clear_after, $field_title, $field_description, $multiple = false, $options = array()){
       parent::__construct($field_id, $column_width, $clear_after, $field_title, $field_description);
       $this->options = $options;
+      $this->multiple = $multiple;
     }
 
     public function render_input($field_value){
       ob_start();
       ?>
-      <select name="<?php echo parent::get_field_id();?>" id="<?php echo parent::get_field_id();?>">
+      <select name="<?php echo parent::get_field_id();?>" id="<?php echo parent::get_field_id();?>" <?php echo ( $this->multiple ) ? 'multiple' : '';?>>
         <?php foreach ($this->options as $key => $value) : ?>
                 <option value="<?php echo $value;?>" <?php selected( $field_value, $value ); ?>><?php echo $key;?></option>
         <?php endforeach; ?>

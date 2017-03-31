@@ -89,6 +89,7 @@
             $field_settings['clear_after'],
             $field_settings['label'],
             $field_settings['desc'],
+            ( isset($field_settings['multiple']) ) ? $field_settings['multiple']: false,
             $field_settings['options']
           );
           break;
