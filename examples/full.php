@@ -2,116 +2,143 @@
 
   $avs_metabox = new Avs_Metabox_Wrapper\Avs_Metabox( 'pages-metabox', 'Pages Metabox', array( 'page','post' ) );
 
-  //Adds input text field
+  //text field
   $avs_metabox->add_field(array(
-  	'type'					=> 'text',
-  	'id' 						=> 'my_text_field',
-  	'label' 				=> 'My text field:',
-  	'desc' 					=> 'My text field description',
-  	'col_width' 		=> 'col4'
+   'type'					=> 'text',
+   'id' 					=> 'my_text_field',
+   'label' 				=> 'My text field:',
+   'desc' 				=> 'My text field description',
+   'col_width' 		=> 'col4'
   ));
 
-  //Adds input number field
+  //number field
   $avs_metabox->add_field(array(
-  	'type'					=> 'number',
-  	'id' 						=> 'my_number_field',
-  	'label' 				=> 'My number field:',
-  	'desc' 					=> 'My number field description',
-  	'col_width' 		=> 'col4'
+   'type'					=> 'number',
+   'id' 					=> 'my_number_field',
+   'label' 				=> 'My number field:',
+   'desc' 				=> 'My number field description',
+   'col_width' 		=> 'col4'
   ));
 
-  //Adds input email field
+  //email field
   $avs_metabox->add_field(array(
-    'type'					=> 'email',
-    'id' 						=> 'my_email_field',
-    'label' 				=> 'My email field:',
-    'desc' 					=> 'My email field description',
-    'col_width' 		=> 'col4',
-    'clear_after' 	=> true
+    'type'				=> 'email',
+    'id' 					=> 'my_email_field',
+    'label' 			=> 'My email field:',
+    'desc' 				=> 'My email field description',
+    'col_width' 	=> 'col4',
+    'clear_after' => true
   ));
 
-  //Adds input checkbox field
+  //checkbox field
   $avs_metabox->add_field(array(
-    'type'					=> 'checkbox',
-    'id' 						=> 'my_checkbox_field',
-    'label' 				=> 'My checkbox field:',
-    'desc' 					=> 'My checkbox field description',
-    'col_width' 		=> 'col3'
+    'type'				=> 'checkbox',
+    'id' 					=> 'my_checkbox_field',
+    'label' 			=> 'My checkbox field:',
+    'desc' 				=> 'My checkbox field description',
+    'col_width' 	=> 'col4'
   ));
 
-  //Adds input url field
+  //url field
   $avs_metabox->add_field(array(
-    'type'					=> 'url',
-    'id' 						=> 'my_url_field',
-    'label' 				=> 'My url field:',
-    'desc' 					=> 'My url field description',
-    'col_width' 		=> 'col4'
+    'type'				=> 'url',
+    'id' 					=> 'my_url_field',
+    'label' 			=> 'My url field:',
+    'desc' 				=> 'My url field description',
+    'col_width' 	=> 'col8',
+    'clear_after' => true
   ));
 
-  //Adds input url field
+  //date field
   $avs_metabox->add_field(array(
-    'type'					=> 'date',
-    'id' 						=> 'my_date_field',
-    'label' 				=> 'My date field:',
-    'desc' 					=> 'My date field description',
-    'col_width' 		=> 'col5',
-    'format' 		    => 'dd-mm-yy',
-    'mindate' 		  => 0,
-    'is_date_range' => false,
-    'clear_after' 	=> true
+    'type'				 => 'date',
+    'id' 					 => 'my_date_field',
+    'label' 			 => 'My date field:',
+    'desc' 				 => 'My date field description',
+    'col_width' 	 => 'col6',
+    'format' 		   => 'dd-mm-yy',
+    'mindate' 		 => 0,
+    'is_date_range'=> false
   ));
 
-  //Adds textarea field
+  //date range field
   $avs_metabox->add_field(array(
-    'type'					=> 'textarea',
-    'id' 						=> 'my_textarea_field',
-    'label' 				=> 'My textarea field:',
-    'desc' 					=> 'My textarea field description',
-    'col_width' 		=> 'col12',
-    'clear_after' 	=> true
+    'type'				 => 'date',
+    'id' 					 => 'my_daterange_field',
+    'label' 			 => 'My date range field:',
+    'desc' 				 => 'My date range field description',
+    'col_width' 	 => 'col6',
+    'format' 		   => 'dd-mm-yy',
+    'mindate' 		 => 0,
+    'is_date_range'=> true,
+    'clear_after'  => true
   ));
 
-  //Adds image select field
+  //textarea field
   $avs_metabox->add_field(array(
-    'type'					=> 'image',
-    'id' 						=> 'my_image_field',
-    'label' 				=> 'My image field:',
-    'desc' 					=> 'My image field description',
-    'col_width' 		=> 'col3'
+    'type'				=> 'textarea',
+    'id' 					=> 'my_textarea_field',
+    'label' 			=> 'My textarea field:',
+    'desc' 				=> 'My textarea field description',
+    'col_width' 	=> 'col12',
+    'clear_after' => true
   ));
 
-  //Adds select field
+  //image field
   $avs_metabox->add_field(array(
-    'type'					=> 'select',
-    'id' 						=> 'my_select_field',
-    'label' 				=> 'My select field:',
-    'desc' 					=> 'My select field description',
-    'col_width' 		=> 'col6',
-    'options'				=> array(
+    'type'				=> 'image',
+    'id' 					=> 'my_image_field',
+    'label' 			=> 'My image field:',
+    'desc' 				=> 'My image field description',
+    'col_width' 	=> 'col3'
+  ));
+
+  //select field
+  $avs_metabox->add_field(array(
+    'type'				=> 'select',
+    'id' 					=> 'my_select_field',
+    'label' 			=> 'My select field:',
+    'desc' 				=> 'My select field description',
+    'col_width' 	=> 'col6',
+    'options'			=> array(
       'option-1' => 'option-1-value',
       'option-2' => 'option-2-value'
     )
   ));
 
-  //Adds WordPress colorpicker field
+  //multiple select field
   $avs_metabox->add_field(array(
-  	'type'					=> 'colorpicker',
-  	'id' 						=> 'my_colorpicker_field',
-  	'label' 				=> 'My colorpicker field:',
-  	'desc' 					=> 'My colorpicker field description',
-  	'col_width' 		=> 'col3',
-  	'clear_after' 	=> true
+    'type'				=> 'select',
+    'id' 					=> 'my_multipleselect_field',
+    'label' 			=> 'My multiple select field:',
+    'desc' 				=> 'My multiple select field description',
+    'col_width' 	=> 'col3',
+    'multiple'		=> true,
+    'options'			=> array(
+      'option-1' => 'option-1-value',
+      'option-2' => 'option-2-value'
+    )
+  ));
+
+  //colorpicker field
+  $avs_metabox->add_field(array(
+   'type'					=> 'colorpicker',
+   'id' 					=> 'my_colorpicker_field',
+   'label' 				=> 'My colorpicker field:',
+   'desc' 				=> 'My colorpicker field description',
+   'col_width' 		=> 'col3',
+   'clear_after' 	=> true
   ));
 
 
-  //Adds TyniMCE editor
+  //TyniMCE editor
   $avs_metabox->add_field(array(
-  	'type'					=> 'editor',
-  	'id' 						=> 'my_editor_field',
-  	'label' 				=> 'My editor field:',
-  	'desc' 					=> 'My editor field description',
-  	'col_width' 		=> 'col12',
-  	'clear_after' 	=> true
+   'type'					=> 'editor',
+   'id' 					=> 'my_editor_field',
+   'label' 				=> 'My editor field:',
+   'desc' 				=> 'My editor field description',
+   'col_width' 		=> 'col12',
+   'clear_after' 	=> true
   ));
 
 ?>

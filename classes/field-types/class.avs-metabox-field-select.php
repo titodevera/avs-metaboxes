@@ -18,17 +18,32 @@
     public function render_input($field_value){
       ob_start();
       ?>
-      <select name="<?php echo parent::get_field_id();?>" id="<?php echo parent::get_field_id();?>" <?php echo ( $this->multiple ) ? 'multiple' : '';?>>
-        <?php foreach ($this->options as $key => $value) : ?>
-                <option value="<?php echo $value;?>" <?php selected( $field_value, $value ); ?>><?php echo $key;?></option>
-        <?php endforeach; ?>
-      </select>
+      <?php if( $this->multiple ): ?>
+        <select multiple name="<?php echo parent::get_field_id();?>[]" id="<?php echo parent::get_field_id();?>">
+          <?php foreach($this->options as $key => $value) : ?>
+                  <?php
+                  $selected = '';
+                  for( $i=0;$i<sizeof($this->options);$i++ ){
+                    if( isset($field_value[$i]) && $field_value[$i] == $value ) $selected = 'selected';
+                  }
+                  ?>
+                  <option value="<?php echo $value;?>" <?php echo $selected; ?>><?php echo $key;?></option>
+          <?php endforeach; ?>
+        </select>
+      <?php else: ?>
+        <select name="<?php echo parent::get_field_id();?>" id="<?php echo parent::get_field_id();?>">
+          <?php foreach ($this->options as $key => $value) : ?>
+                  <option value="<?php echo $value;?>" <?php selected( $field_value, $value ); ?>><?php echo $key;?></option>
+          <?php endforeach; ?>
+        </select>
+      <?php endif; ?>
+
       <?php
       return ob_get_clean();
     }
 
     public function sanitize_field($field_value){
-      $field_value =  wp_strip_all_tags($field_value);
+      //$field_value =  wp_strip_all_tags($field_value);
       return $field_value;
     }
 

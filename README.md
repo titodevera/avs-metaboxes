@@ -13,11 +13,12 @@ Developer's toolkit for building metaboxes for WordPress.
 
         $avs_metabox = new Avs_Metabox_Wrapper\Avs_Metabox('pages-metabox','Pages Metabox',array('page','post'));
 
-        //Adds input text field
+        //text field
         $avs_metabox->add_field(array(
         	'type'					=> 'text',
         	'id' 						=> 'my_text_field',
         	'label' 				=> 'My text field:',
         	'desc' 					=> 'My text field description',
-        	'col_width' 		=> 'col4'
+        	'col_width' 		=> 'col12',
+          'clear_after'   => true
         ));

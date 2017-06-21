@@ -151,7 +151,7 @@
 
     public function meta_box_save($post_id){
 
-      foreach ($this->fields as $field) {
+      foreach($this->fields as $field) {
         $field_id = $field->get_field_id();
         $field_id_nonce = $field_id . '_nonce';
 

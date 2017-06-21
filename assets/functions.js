@@ -48,29 +48,23 @@ jQuery(document).ready(function($){
   //date range pickers
   $( ".avs-metabox-datepicker-range" ).each( function(){
 
-    var dateFormat = "mm/dd/yy";
-    var from = $( ".avs-metabox-datepicker-from", this ).datepicker();
+    var dateFormat = "mm-dd-yy";
+    var from = $( ".avs-metabox-datepicker-from", this ).datepicker({
+      dateFormat: $( ".avs-metabox-datepicker-from", this ).data('format'),
+      minDate: $( ".avs-metabox-datepicker-from", this ).data('mindate')
+    });
     from.on( "change", function() {
-      to.datepicker( "option", "minDate", getDate( this ) );
+      to.val('');
+      to.datepicker( "option", "minDate", $(this).val() );
     });
-    var to = $( ".avs-metabox-datepicker-to", this ).datepicker();
+    var to = $( ".avs-metabox-datepicker-to", this ).datepicker({
+      dateFormat: $( ".avs-metabox-datepicker-to", this ).data('format'),
+      minDate: $( ".avs-metabox-datepicker-to", this ).data('mindate')
+    });
     to.on( "change", function() {
-      from.datepicker( "option", "maxDate", getDate( this ) );
+      from.datepicker( "option", "maxDate", $(this).val() );
     });
 
-    function getDate( element ) {
-      var date;
-      try {
-        date = $.datepicker.parseDate( dateFormat, element.value );
-      } catch( error ) {
-        date = null;
-      }
-
-      return date;
-    }
-
-  } );
-
-
+  });
 
 });
