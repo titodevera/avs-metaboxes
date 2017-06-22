@@ -1,7 +1,7 @@
 # avs-metaboxes
 Developer's toolkit for building metaboxes for WordPress.
 
-**Version:**        0.5
+**Version:**        0.5.2
 
 ## How to
 * Place "AVS Metaboxes" into your theme´s folder

@@ -19,7 +19,7 @@
 
       ob_start();
 
-      if( $this->is_date_range && isset( $field_value[0], $field_value[1] ) ){
+      if( $this->is_date_range ){
         //date range
         ?>
         <span class="avs-metabox-datepicker-range">
@@ -28,13 +28,13 @@
           data-format="<?php echo $this->format;?>"
           class="avs-metabox-datepicker-from"
           name="<?php echo parent::get_field_id();?>[]"
-          value="<?php echo $field_value[0];?>">
+          value="<?php echo ( isset($field_value[0]) ) ? $field_value[0] : '';?>">
           <input type="text"
           data-mindate="<?php echo $this->min_date;?>"
           data-format="<?php echo $this->format;?>"
           class="avs-metabox-datepicker-to"
           name="<?php echo parent::get_field_id();?>[]"
-          value="<?php echo $field_value[1];?>">
+          value="<?php echo ( isset($field_value[1]) ) ? $field_value[1] : '';?>">
         </span>
         <?php
       }else{
