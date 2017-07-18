@@ -84,9 +84,9 @@
     'clear_after' => true
   ));
 
-  //image field
+  //image or file field
   $avs_metabox->add_field(array(
-    'type'				=> 'image',
+    'type'				=> 'image',//or file
     'id' 					=> 'my_image_field',
     'label' 			=> 'My image field:',
     'desc' 				=> 'My image field description',

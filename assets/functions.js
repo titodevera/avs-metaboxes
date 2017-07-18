@@ -4,34 +4,67 @@ jQuery(document).ready(function($){
 
   //select image
   var media_uploader = null;
-  function open_media_uploader_image($clickedElement){
-      media_uploader = wp.media({
-          frame:    "post",
-          state:    "insert",
-          multiple: false
-      });
+  function avsm_open_media_uploader_image($clickedElement){
+    media_uploader = wp.media({
+        frame:    "post",
+        state:    "insert",
+        multiple: false
+    });
 
-      media_uploader.on("insert", function(){
-          var json = media_uploader.state().get("selection").first().toJSON();
-          var image_id = json.id;
-          var image_url = json.url;
-          var image_thumb = json.sizes.thumbnail;
+    media_uploader.on("insert", function(){
+        var json = media_uploader.state().get("selection").first().toJSON();
+        var image_id = json.id;
+        var image_url = json.url;
+        var image_thumb = json.sizes.thumbnail;
 
-          $clickedElementParent = $clickedElement.parent();
-          $('input.avs-metabox-image-field',$clickedElementParent).val(image_id);
-          $('.avs-metabox-image-preview',$clickedElementParent).html('<img src="'+image_thumb.url+'" width="'+image_thumb.width+'" height="'+image_thumb.height+'">');
-      });
+        $clickedElementParent = $clickedElement.parent();
+        $('input.avs-metabox-image-field',$clickedElementParent).val(image_id);
+        $('.avs-metabox-image-preview',$clickedElementParent).html('<img src="'+image_thumb.url+'" width="'+image_thumb.width+'" height="'+image_thumb.height+'">');
+    });
 
-      media_uploader.open();
+    media_uploader.open();
   }
   $( '.avs-metabox-cont .avs-metabox-image').on('click',function(){
-    open_media_uploader_image($(this));
+    avsm_open_media_uploader_image($(this));
   });
   $( '.avs-metabox-cont .avs-metabox-image-remove').on('click',function(){
     var $imageField = $(this).parents('.avs-metabox-field').find('input.avs-metabox-image-field');
     var $imagePreview = $(this).parents('.avs-metabox-field').find('.avs-metabox-image-preview');
     $imageField.val('');
     $imagePreview.html('No image selected');
+  });
+
+  //select file
+  var media_uploader = null;
+  function avsm_open_media_uploader_file($clickedElement){
+    media_uploader = wp.media({
+        frame:    "post",
+        state:    "insert",
+        multiple: false
+    });
+
+    media_uploader.on("insert", function(){
+        var json = media_uploader.state().get("selection").first().toJSON();
+        var file_id = json.id;
+        var file_url = json.url;
+        var file_thumb = json.icon;
+        var file_name = json.filename;
+
+        $clickedElementParent = $clickedElement.parent();
+        $('input.avs-metabox-file-field',$clickedElementParent).val(file_id);
+        $('.avs-metabox-file-preview',$clickedElementParent).html('<img src="'+file_thumb+'"><p>'+file_name+'</p>');
+    });
+
+    media_uploader.open();
+  }
+  $( '.avs-metabox-cont .avs-metabox-file').on('click',function(){
+    avsm_open_media_uploader_file($(this));
+  });
+  $( '.avs-metabox-cont .avs-metabox-file-remove').on('click',function(){
+    var $fileField = $(this).parents('.avs-metabox-field').find('input.avs-metabox-file-field');
+    var $filePreview = $(this).parents('.avs-metabox-field').find('.avs-metabox-file-preview');
+    $fileField.val('');
+    $filePreview.html('No file selected');
   });
 
   //color pickers

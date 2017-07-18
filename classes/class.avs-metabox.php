@@ -6,14 +6,16 @@
 
   class Avs_Metabox{
 
-    private $id = '';
-    private $title = '';
-    private $post_types = array();
-    private $fields = array();
+    private $id           = '';
+    private $title        = '';
+    private $desc         = '';
+    private $post_types   = array();
+    private $fields       = array();
 
-    function __construct($id, $title, $post_types){
+    function __construct($id, $title, $post_types, $desc = ''){
       $this->id = $id;
       $this->title = $title;
+      $this->desc = $desc;
       $this->post_types = $post_types;
       add_action('add_meta_boxes', array($this,'meta_box'));
       add_action('save_post', array($this,'meta_box_save'));
@@ -82,6 +84,15 @@
             $field_settings['desc']
           );
           break;
+        case 'file':
+          $this->fields[] = new Avs_Metabox_Field_File(
+            $field_settings['id'],
+            $field_settings['col_width'],
+            $field_settings['clear_after'],
+            $field_settings['label'],
+            $field_settings['desc']
+          );
+          break;
         case 'select':
           $this->fields[] = new Avs_Metabox_Field_Select(
             $field_settings['id'],
@@ -142,6 +153,9 @@
 
     public function meta_box_callback(){
       echo '<div class="avs-metabox-cont avs-metabox-clearfix">';
+      if( !empty( $this->desc ) ){
+        echo '<div class="avs-metabox-desc">'.$this->desc.'</div>';
+      }
       foreach ($this->fields as $field) {
         echo $field->render_field();
         echo ($field->get_clear_after()) ? '<div class="avs-metabox-clearfix"></div>' : '';
