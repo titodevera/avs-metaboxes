@@ -182,8 +182,6 @@
         if ( isset( $_POST[$field_id] ) && isset( $_POST[$field_id_nonce] ) && wp_verify_nonce( $_POST[$field_id_nonce], 'edit' ) && !defined( 'DOING_AUTOSAVE' ) ) {
           $field_value = $field->sanitize_field($_POST[$field_id]);
           update_post_meta( $post_id, $field_id, $field_value );
-        }else{
-          delete_post_meta( $post_id, $field_id );
         }
 
       }
