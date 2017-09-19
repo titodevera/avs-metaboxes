@@ -1,11 +1,11 @@
 <?php
   /*
   AVS Metaboxes
-  Version: 0.5.3
+  Version: 0.5.4
   Author: Alberto de Vera Sevilla
   License: GPL3
 
-      AVS Metaboxes version 0.5.3, Copyright (C) 2016-2017 Alberto de Vera Sevilla
+      AVS Metaboxes version 0.5.4, Copyright (C) 2016-2017 Alberto de Vera Sevilla
 
       AVS Metaboxes is free software: you can redistribute it and/or modify
       it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@
   $url = str_replace( $content_dir, $content_url, $file );
   $url = str_replace( basename(__FILE__), '', $url );
   define('AVS_METABOXES_URL', $url);
-  define('AVS_METABOXES_VERSION', '0.5.3');
+  define('AVS_METABOXES_VERSION', '0.5.4');
 
   spl_autoload_register(function ($class_name) {
     $class_name = str_replace('Avs_Metabox_Wrapper\\','',$class_name);
